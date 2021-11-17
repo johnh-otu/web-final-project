@@ -11,11 +11,13 @@ Johnathon Tannous
 John Howe
 
 ==================================================================================
+
 OUR PRESENTATION IS DEC 3RD AT 10:45AM
 https://doodle.com/poll/tpnncnw5pgpwhync?utm_source=poll&utm_medium=link
 (USE EUROPE/ZURICH TIME)
 
 WE NEED THE FULL PROJECT ALONG WITH A PRESENTATION AND DEMO COMPLETED BY THIS TIME
+
 ==================================================================================
 
 We will meet on Sunday 21st to discuss how we want to build this project and divide up the work.
