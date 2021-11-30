@@ -12,25 +12,22 @@
         <link rel="stylesheet" href="site-styles.css">
     </head>
     <body>
-        <div>
-            <!--Header bar here-->
-        </div>
+        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+            <div class="container-fluid">
 
-        <?php
+            </div>
+        </nav>
 
+        <main>
+            <?php
+
+                
+
+
+            ?>
             
-
-
-        ?>
-
-    </body>
-</html></title>
-        <link rel="stylesheet" href="site-styles.css">
-    </head>
-    <body>
-        
-        <!-- some stuff here in html and php to display product info-->
-
+            <!-- some stuff here in html and php to display product info-->
+        </main>
 
     </body>
 </html>
