@@ -25,17 +25,18 @@
                 </span>
             </div>
         </nav>
+        <main>
+            <?php
 
-        <?php
-            
-            for($i = 0; $i < count($products); $i++)
-            {
-                #add td/div/whatever for product
-            }
-            
-            #hello
+                for($i = 0; $i < count($products); $i++)
+                {
+                    #add td/div/whatever for product
+                }
 
-        ?>
+                #hello
 
+
+            ?>
+        </main>
     </body>
 </html>
