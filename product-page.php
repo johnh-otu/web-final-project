@@ -29,16 +29,90 @@
             </div>
         </nav>
 
-        <main>
+        <main class="mx-auto">
             <?php
 
                 
 
 
             ?>
-            
             <!-- some stuff here in html and php to display product info-->
+
+            <!--example html that can be edited later-->
+
+            <div class="row">
+                <div class="col ps-5 me-4">
+                    <div id="product-pics" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="false">
+
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#product-pics" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#product-pics" data-bs-slide-to="1" class aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#product-pics" data-bs-slide-to="2" class aria-label="Slide 3"></button>
+                        </div>
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false" data-interval="false">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                    <text x="50%" y="50%" fill="#555" dey=".3em">First Slide</text>
+                                </svg>
+                            </div>
+                            <div class="carousel-item">
+                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                    <text x="50%" y="50%" fill="#555" dey=".3em">Second Slide</text>
+                                </svg>
+                            </div>
+                            <div class="carousel-item">
+                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                    <text x="50%" y="50%" fill="#555" dey=".3em">Third Slide</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#product-pics" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#product-pics" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+
+                    </div>
+                </div>
+                
+
+                <div class="col ms-3 ps-5 pe-5">
+                    <h3>Name</h3>
+                    <p>CA$PR.CE</p>
+                    <div class="mt-auto">
+                        <div class="row">
+                            <h6>Colour</h6>
+                            <div class="react-select-container css-2b097c-container" id="colour_select">
+                                <div class="react-select__control css-1cxv431-control">
+                                    <div class="react-select__value-container react-select__value-container--has-value css-1hwfws3">
+
+                                    </div>
+                                    <div class="react-select__indicators css-1wy0on6">
+
+                                    </div>
+                                    <input name="colour" type="hidden" value="value_0"
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </main>
 
+        <script src="/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
     </body>
+
 </html>
