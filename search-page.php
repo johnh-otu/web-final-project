@@ -31,23 +31,12 @@
                 </a>
             </div>
         </nav>
+
+        <!--main-->
         <main class="">
-            <?php
-
-                for($i = 0; $i < count($products); $i++)
-                {
-                    #add td/div/whatever for product
-                    echo "<a href='/product-page?pid=" . $product_id . "'>bruh</a>";
-                }
-
-                #goodbye
-
-
-            ?>
-
             <div class="row">
 
-            <!---Divider-->
+                <!---Divider-->
 
                 <div class="flex-shrink-0 p-3 bg-white col-2" style="width: 280px;">
                 
@@ -104,17 +93,29 @@
                                 </ul>
                             </div>
                         </li>
-            </ul>
-            </div>
+                    </ul>
+                </div>
 
 
 
-            <!--<div class="b-example-divider"></div> --> 
+                <div class="b-example-divider col"></div>
 
-            <!---Pictures-->
+                <!---Pictures-->
 
 
                 <div class="album py-5 bg-light col">
+                    <?php
+
+                        for($i = 0; $i < count($products); $i++)
+                        {
+                            #add td/div/whatever for product
+                            echo "<a href='/product-page?pid=" . $product_id . "'>bruh</a>";
+                        }
+
+
+
+
+                    ?>
                     <div class="container">
 
 
