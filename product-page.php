@@ -90,29 +90,33 @@
                     <div class="mt-auto">
                         <form action="" method="get">
                             <div class="row">
+                                <span>Size: </span>
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Size
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Choose Size
                                     </button>
                                     <input type="hidden" id="size-value">
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('xs')">XS</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('s')">S</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('m')">M</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('l')">L</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('xl')">XL</button></li>
+                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('XS')">XS</button></li>
+                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('S')">S</button></li>
+                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('M')">M</button></li>
+                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('L')">L</button></li>
+                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('XL')">XL</button></li>
                                     </ul>
 
                                     <script>
                                         function updateDropdown(x)
                                         {
                                             document.getElementById("size-value").value = x;
+                                            document.getElementById("dropdownMenuButton").innerHTML = x;
                                         }
                                     </script>
                                 </div>
                             </div>
-                            <div class="row">
-
+                            <div class="row mt-5">
+                                <input type="hidden" id="product-id">
+                                <button type="button" style="width: 75%" class="btn btn-secondary btn-lg mt-4 ml-auto" onclick="addToBag()">Add To Bag</button>
+                                <button type="submit" style="width: 75%" class="btn btn-primary btn-lg mt-4 ml-auto">Purchase</button>
                             </div>
                         </form>
                     </div>
