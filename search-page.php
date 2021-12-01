@@ -1,7 +1,8 @@
 <?php
     #connect to database and retrieve product info
     #turn products into an array of product objects?
-    $products = []
+    $products = array("p1", "p2");
+    $product_id = 2;
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +31,15 @@
                 </a>
             </div>
         </nav>
-        <main>
+        <main class="mt-5">
             <?php
 
+                echo count($products) . "<br>";
                 for($i = 0; $i < count($products); $i++)
                 {
                     #add td/div/whatever for product
+                    echo $i . "<br>";
+                    echo "<a href='/product-page?pid=" . $product_id . ">bruh</a>";
                 }
 
                 #hello
