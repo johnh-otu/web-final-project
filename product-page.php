@@ -120,7 +120,9 @@
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <input type="hidden" id="product-id">
+                                <?php
+                                    echo "<input type='hidden' id='product-id' value='". $_GET['pid'] ."'>" 
+                                ?>
                                 <div>
                                     <button type="button" style="width: 75%" class="btn btn-secondary btn-lg mt-4 ml-auto" onclick="addToBag()">
                                         Add To Bag
