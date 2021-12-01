@@ -29,7 +29,7 @@
             </div>
         </nav>
 
-        <main class="mx-auto">
+        <main class="mx-auto my-auto" style="width: 75%">
             <?php
 
                 
@@ -88,23 +88,33 @@
                     <h3>Name</h3>
                     <p>CA$PR.CE</p>
                     <div class="mt-auto">
-                        <div class="row">
-                            <h6>Colour</h6>
-                            <div class="react-select-container css-2b097c-container" id="colour_select">
-                                <div class="react-select__control css-1cxv431-control">
-                                    <div class="react-select__value-container react-select__value-container--has-value css-1hwfws3">
+                        <form action="" method="get">
+                            <div class="row">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Size
+                                    </button>
+                                    <input type="hidden" id="size-value">
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('xs')">XS</button></li>
+                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('s')">S</button></li>
+                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('m')">M</button></li>
+                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('l')">L</button></li>
+                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('xl')">XL</button></li>
+                                    </ul>
 
-                                    </div>
-                                    <div class="react-select__indicators css-1wy0on6">
-
-                                    </div>
-                                    <input name="colour" type="hidden" value="value_0"
+                                    <script>
+                                        function updateDropdown(x)
+                                        {
+                                            document.getElementById("size-value").value = x;
+                                        }
+                                    </script>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+                            <div class="row">
 
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
