@@ -42,7 +42,7 @@
                     echo "<a href='/product-page?pid=" . $product_id . ">bruh</a>";
                 }
 
-                #hello
+                #goodbye
 
 
             ?>
