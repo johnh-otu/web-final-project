@@ -34,7 +34,7 @@
         }
         
         $sql = 'SELECT * from products WHERE '. $condition .';';
-        $products = $pdo->query($sql);
+        $products = $pdo->query($sql)->fetchAll();
 
     }
     catch (PDOException $e)
@@ -53,6 +53,7 @@
     <head>
         <title>DFJJ - Our Products</title>
         <link href="/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/bootstrap-5.1.3-dist/css/sidebars.css" rel="stylesheet">
         <link rel="stylesheet" href="site-styles.css">
     </head>
     <body>
