@@ -87,7 +87,7 @@
         <link href="/bootstrap-5.1.3-dist/css/sidebars.css" rel="stylesheet">
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="container-fluid">
                 <a href="/search-page" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
@@ -182,20 +182,24 @@
                                 for($i = 0; $i < count($products); $i++)
                                 {
                                     #echo "<a href='/product-page?pid=" . $product_id . "'>bruh</a>";
-                                    
+                                    $pname = $products[$i]['product_name'];
+                                    $pprice = $products[$i]['price'];
+                                    $pimg = $products[$i]['image'];
+                                    $pid = $products[$i]['product_id'];
+
                                     echo '
                                     <div class="col">
                                         <div class="card shadow-sm">
-                                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="'. $pimg .'" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
                                     
                                             <div class="card-body">
                                                 <p>
-                                                    <a href="/product-page?pid=1">
-                                                    <span>Product Description</span>
+                                                    <a href="/product-page?pid='. $pid .'">
+                                                    <span>'. $pname .'</span>
                                                     </a>
                                                 </p>
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <small class="text-muted">0.00 $</small>
+                                                    <small class="text-muted">$'. $pprice .'</small>
                                                 </div>
                                             </div>
                                         </div>
