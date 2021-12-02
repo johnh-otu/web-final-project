@@ -1,7 +1,50 @@
 <?php
     #connect to database and retrieve product info
     #turn products into an array of product objects?
-    $products = array("p1", "p2", "p3", "p4", "p5", "p6", "p7");
+
+    try
+    {
+        $connString = "mysql:host=localhost;dbname=finalproject";
+        $user = "root"; //ideally we'd set up a specific user and password but that might be hard to implement
+        $pass = "";
+        $pdo = new PDO($connString, $user, $pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $condition = "1";
+
+        if(count($_GET) > 1)
+        {
+            $vars = array();
+
+            if(isset($_GET['g']))
+            {
+                $gender = $_GET['g'];
+                $condtition += " AND gender = " . $pdo->quote($gender);
+            }
+            if(isset($_GET['c']))
+            {
+                $colour = $_GET['c'];
+                $condition += " AND color = " . $pdo->quote($colour);
+            }
+            if(isset($_GET['t']))
+            {
+                $type = $_GET['t'];
+                $condition += " AND type = " . $pdo->quote($type);
+            }
+        }
+        
+        $sql = 'SELECT * from products WHERE '. $condition .';';
+        $products = $pdo->query($sql)->fetchAll();
+
+    }
+    catch (PDOException $e)
+    {
+        die($e->getMessage());
+    }
+    
+
+
+    //$products = array("p1", "p2", "p3", "p4", "p5", "p6", "p7");
     $product_id = 2;
 ?>
 
@@ -10,6 +53,7 @@
     <head>
         <title>DFJJ - Our Products</title>
         <link href="/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/bootstrap-5.1.3-dist/css/sidebars.css" rel="stylesheet">
         <link rel="stylesheet" href="site-styles.css">
     </head>
     <body>
