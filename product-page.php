@@ -1,27 +1,36 @@
 <?php
     #retrieve product info and store it in variables
-    $pid = $_GET['product_id'];
-    
+
+    if(!isset($_GET['pid'])) //checks if no pid is provided, and sends back to search page
+    {
+        echo "<script>location.replace('/search-page');</script>"; //sends to search page
+    }
+    else
+    {
+        $pid = $_GET['product_id'];
+    }
+
     try
     {
-    define("connectionString","mysql:dbname=finalproject");
-    define("userName","root");
-    define("password","");
-    $conn = new PDO(connectionString,userName,password);
+      define("connectionString","mysql:dbname=finalproject");
+      define("userName","root");
+      define("password","");
+      $conn = new PDO(connectionString,userName,password);
 
-    $sql = "SELECT * FROM products WHERE product_id =" . $pid;
-    $statement = $conn->prepare($sql);
-    $statement->execute();
-    $result = $statement->fetch(PDO::FETCH_ASSOC);
+      $sql = "SELECT * FROM products WHERE product_id =" . $pid;
+      $statement = $conn->prepare($sql);
+      $statement->execute();
+      $result = $statement->fetch(PDO::FETCH_ASSOC);
     
-    if ($result)
-    {
-        $name = $result['product_name'];
-        $color = $result['color'];
-        $type = $result['type'];
-        $gender = $result['gender'];
-        $price = $result['price'];
-    }
+      if ($result)
+      {
+          $name = $result['product_name'];
+          $color = $result['color'];
+          $type = $result['type'];
+          $gender = $result['gender'];
+          $price = $result['price'];
+      }
+      //TODO: check if the product exists, else kick back to search-page
 
     }
     catch (PDOException $e)
@@ -49,7 +58,7 @@
                 <span class="navbar-brand mx-auto">
                     <h2 id="dfjj">DFJJ</h2>
                 </span>
-                <a href="/purchase-form" >
+                <a href="/purchase-page" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                         <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
                     </svg>
@@ -70,7 +79,13 @@
 
             <div class="row">
                 <div class="col ps-5 me-4">
-                    <div id="product-pics" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="false">
+                    <!--<div id="product-pics" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="false">
+
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#product-pics" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#product-pics" data-bs-slide-to="1" class aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#product-pics" data-bs-slide-to="2" class aria-label="Slide 3"></button>
+                        </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">                              
                                     <?php 
@@ -78,7 +93,22 @@
                                     ?>
                             </div>                        
                         </div>
-                    </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#product-pics" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#product-pics" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+
+                    </div>-->
+                    
+                    <figure class="figure">
+                        <?php 
+                            echo  '<img src="data:image/jpeg;base64,'.base64_encode($result['image']).'" class="figure-img img-fluid rounded" width = 400 height = 400 alt="product image" /> ';
+                        ?>
+                    </figure>
                 </div>
                 
 
@@ -86,39 +116,29 @@
                     <h3><?php echo $name; ?></h3>
                     <p>$<?php echo $price; ?></p>
                     <div class="mt-auto">
-                        <form action="" method="get">
+                        <form action="checkout-page.php" method="post">
                             <div class="row">
-                                <span>Size: </span>
-                                <div class="dropdown">
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Choose Size
-                                    </button>
-                                    <input type="hidden" id="size-value">
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('XS')">XS</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('S')">S</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('M')">M</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('L')">L</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('XL')">XL</button></li>
-                                    </ul>
-
-                                    <script>
-                                        function updateDropdown(x)
-                                        {
-                                            document.getElementById("size-value").value = x;
-                                            document.getElementById("dropdownMenuButton").innerHTML = x;
-                                        }
-                                    </script>
+                                <label for="size">Size: </label>
+                                <div class="w-100 input-group">
+                                    <select name="size" id="size" class="detail-quantity form-control ml-auto" required>
+                                        <option>XS</option>
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+                                        <option>XL</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row  mt-4">
-                                <span>Quantity: </span>
+                                <label for="items">Quantity: </label>
                                 <div class="w-100 input-group">
-                                    <input name="items" type="number" style="width: 75%" class="detail-quantity form-control-lg form-control ml-auto" value="1">
+                                    <input name="items" id="items" type="number" style="width: 75%" class="detail-quantity form-control ml-auto" value="1">
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <input type="hidden" id="product-id">
+                                <?php
+                                    echo "<input type='hidden' id='product-id' name='pid' value='". $_GET['pid'] ."'>" 
+                                ?>
                                 <div>
                                     <button type="button" style="width: 75%" class="btn btn-secondary btn-lg mt-4 ml-auto" onclick="addToBag()">
                                         Add To Bag
@@ -127,9 +147,22 @@
                                             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
                                         </svg>
                                     </button>
+                                    <script>
+                                        function addToBag()
+                                        {
+                                            //code to add product to bag
+                                        }
+                                    </script>
                                 </div>
                                 <div>
-                                    <button type="submit" style="width: 75%" class="btn btn-primary btn-lg mt-4 ml-auto">Purchase</button>
+                                    <button type="button" style="width: 75%" class="btn btn-primary btn-lg mt-4 ml-auto" onclick="purchase()">Purchase</button>
+                                    <script>
+                                        function purchase()
+                                        {
+                                            addToBag();
+                                            location.replace("/purchase-page");
+                                        }
+                                    </script>
                                 </div>
                             </div>
                         </form>
@@ -140,7 +173,7 @@
         </main>
 
         <script src="/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+        <script src="/bootstrap-5.1.3-dist/js/bootstrap.bundle.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 
 </html>
