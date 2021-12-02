@@ -106,7 +106,6 @@
                                     <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                         Choose Size
                                     </button>
-                                    <input type="hidden" name="size-value" id="size-value">
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <li><button class="dropdown-item" type="button" onclick="updateDropdown('XS')">XS</button></li>
                                         <li><button class="dropdown-item" type="button" onclick="updateDropdown('S')">S</button></li>
@@ -114,15 +113,17 @@
                                         <li><button class="dropdown-item" type="button" onclick="updateDropdown('L')">L</button></li>
                                         <li><button class="dropdown-item" type="button" onclick="updateDropdown('XL')">XL</button></li>
                                     </ul>
-
-                                    <script>
-                                        function updateDropdown(x)
-                                        {
-                                            document.getElementById("size-value").value = x;
-                                            document.getElementById("dropdownMenuButton").innerHTML = x;
-                                        }
-                                    </script>
                                 </div>
+
+                                <script>
+                                    function updateDropdown(x)
+                                    {
+                                        document.getElementById("size-value").value = x;
+                                        document.getElementById("dropdownMenuButton").innerHTML = x;
+                                    }
+                                </script>
+                                <input type="hidden" name="size-value" id="size-value">
+                                
                             </div>
                             <div class="row  mt-4">
                                 <span>Quantity: </span>
@@ -156,7 +157,6 @@
                                         {
                                             addToBag();
                                             location.replace("/purchase-page");
-
                                         }
                                     </script>
                                 </div>
