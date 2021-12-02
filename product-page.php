@@ -1,11 +1,41 @@
 <?php
-    if(!isset($_GET['pid']))
+    #retrieve product info and store it in variables
+
+    if(!isset($_GET['pid'])) //checks if no pid is provided, and sends back to search page
     {
-        echo "<script>location.replace('/search-page');</script>";
+        echo "<script>location.replace('/search-page');</script>"; //sends to search page
     }
     else
     {
-        //check if the product exists, else kick back to search-page
+        $pid = $_GET['product_id'];
+    }
+
+    try
+    {
+      define("connectionString","mysql:dbname=finalproject");
+      define("userName","root");
+      define("password","");
+      $conn = new PDO(connectionString,userName,password);
+
+      $sql = "SELECT * FROM products WHERE product_id =" . $pid;
+      $statement = $conn->prepare($sql);
+      $statement->execute();
+      $result = $statement->fetch(PDO::FETCH_ASSOC);
+    
+      if ($result)
+      {
+          $name = $result['product_name'];
+          $color = $result['color'];
+          $type = $result['type'];
+          $gender = $result['gender'];
+          $price = $result['price'];
+      }
+      //TODO: check if the product exists, else kick back to search-page
+
+    }
+    catch (PDOException $e)
+    {
+        echo $e->getMessage();
     }
 ?>
 
@@ -56,28 +86,13 @@
                             <button type="button" data-bs-target="#product-pics" data-bs-slide-to="1" class aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#product-pics" data-bs-slide-to="2" class aria-label="Slide 3"></button>
                         </div>
-
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false" data-interval="false">
-                                    <rect width="100%" height="100%" fill="#777"></rect>
-                                    <text x="50%" y="50%" fill="#555" dey=".3em">First Slide</text>
-                                </svg>
-                            </div>
-                            <div class="carousel-item">
-                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                    <rect width="100%" height="100%" fill="#777"></rect>
-                                    <text x="50%" y="50%" fill="#555" dey=".3em">Second Slide</text>
-                                </svg>
-                            </div>
-                            <div class="carousel-item">
-                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                    <rect width="100%" height="100%" fill="#777"></rect>
-                                    <text x="50%" y="50%" fill="#555" dey=".3em">Third Slide</text>
-                                </svg>
-                            </div>
+                            <div class="carousel-item active">                              
+                                    <?php 
+                                    echo  '<img src="data:image/jpeg;base64,'.base64_encode($result['image']).'" width = 400 height = 400 /> ';
+                                    ?>
+                            </div>                        
                         </div>
-
                         <button class="carousel-control-prev" type="button" data-bs-target="#product-pics" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
@@ -90,14 +105,16 @@
                     </div>-->
                     
                     <figure class="figure">
-                        <img class="figure-img img-fluid rounded" alt="product image">
+                        <?php 
+                            echo  '<img src="data:image/jpeg;base64,'.base64_encode($result['image']).'" class="figure-img img-fluid rounded" width = 400 height = 400 alt="product image" /> ';
+                        ?>
                     </figure>
                 </div>
                 
 
                 <div class="col ms-3 ps-5 pe-5">
-                    <h3>Name</h3>
-                    <p>CA$PR.CE</p>
+                    <h3><?php echo $name; ?></h3>
+                    <p>$<?php echo $price; ?></p>
                     <div class="mt-auto">
                         <form action="checkout-page.php" method="post">
                             <div class="row">
