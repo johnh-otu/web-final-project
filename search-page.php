@@ -4,15 +4,16 @@
 
     try
     {
-        $connString = "mysql:host=localhost;dbname=finalproject";
-        $user = "root"; //ideally we'd set up a specific user and password but that might be hard to implement
-        $pass = "";
-        $pdo = new PDO($connString, $user, $pass);
+        define("connectionString","mysql:dbname=finalproject");
+        define("userName","root");
+        define("password","");
+
+        $pdo = new PDO(connectionString, userName, password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $condition = "1";
 
-        if(count($_GET) > 1)
+        if(count($_GET) > 1) //for filtering
         {
             $vars = array();
 
@@ -34,18 +35,20 @@
         }
         
         $sql = 'SELECT * from products WHERE '. $condition .';';
-        $products = $pdo->query($sql)->fetchAll();
+        $products = $pdo->query($sql)->fetchAll(); //returns as a 2-D array
 
+        /* or possibly
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+        */
+
+        $pdo = null; //disconnect
     }
     catch (PDOException $e)
     {
         die($e->getMessage());
     }
-    
 
-
-    //$products = array("p1", "p2", "p3", "p4", "p5", "p6", "p7");
-    $product_id = 2;
 ?>
 
 <!DOCTYPE html>
@@ -181,17 +184,17 @@
 
                                 for($i = 0; $i < count($products); $i++)
                                 {
-                                    #echo "<a href='/product-page?pid=" . $product_id . "'>bruh</a>";
                                     $pname = $products[$i]['product_name'];
                                     $pprice = $products[$i]['price'];
                                     $pimg = $products[$i]['image'];
                                     $pid = $products[$i]['product_id'];
 
+                                    #<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="'. $pimg .'" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
                                     echo '
                                     <div class="col">
                                         <div class="card shadow-sm">
-                                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="'. $pimg .'" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                                    
+                                            <img src="data:image/jpeg;base64,'.base64_encode($result['image']).'" width=200 height=200/> 
                                             <div class="card-body">
                                                 <p>
                                                     <a href="/product-page?pid='. $pid .'">
