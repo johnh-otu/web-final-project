@@ -182,9 +182,10 @@
                                 for($i = 0; $i < count($products); $i++)
                                 {
                                     #echo "<a href='/product-page?pid=" . $product_id . "'>bruh</a>";
-                                    $pname = $products[$i]['name'];
+                                    $pname = $products[$i]['product_name'];
                                     $pprice = $products[$i]['price'];
                                     $pimg = $products[$i]['image'];
+                                    $pid = $products[$i]['product_id'];
 
                                     echo '
                                     <div class="col">
@@ -193,7 +194,7 @@
                                     
                                             <div class="card-body">
                                                 <p>
-                                                    <a href="/product-page?pid=1">
+                                                    <a href="/product-page?pid='. $pid .'">
                                                     <span>'. $pname .'</span>
                                                     </a>
                                                 </p>
