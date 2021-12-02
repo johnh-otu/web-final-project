@@ -92,14 +92,14 @@
                     <h3>Name</h3>
                     <p>CA$PR.CE</p>
                     <div class="mt-auto">
-                        <form action="" method="get">
+                        <form action="checkout-page.php" method="post">
                             <div class="row">
                                 <span>Size: </span>
                                 <div class="dropdown">
                                     <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                         Choose Size
                                     </button>
-                                    <input type="hidden" id="size-value">
+                                    <input type="hidden" name="size-value" id="size-value" require>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <li><button class="dropdown-item" type="button" onclick="updateDropdown('XS')">XS</button></li>
                                         <li><button class="dropdown-item" type="button" onclick="updateDropdown('S')">S</button></li>
@@ -125,7 +125,7 @@
                             </div>
                             <div class="row mt-3">
                                 <?php
-                                    echo "<input type='hidden' id='product-id' value='". $_GET['pid'] ."'>" 
+                                    echo "<input type='hidden' id='product-id' name='pid' value='". $_GET['pid'] ."'>" 
                                 ?>
                                 <div>
                                     <button type="button" style="width: 75%" class="btn btn-secondary btn-lg mt-4 ml-auto" onclick="addToBag()">
@@ -135,9 +135,23 @@
                                             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
                                         </svg>
                                     </button>
+                                    <script>
+                                        function addToBag()
+                                        {
+                                            //code to add product to bag
+                                        }
+                                    </script>
                                 </div>
                                 <div>
-                                    <button type="submit" style="width: 75%" class="btn btn-primary btn-lg mt-4 ml-auto">Purchase</button>
+                                    <button type="button" style="width: 75%" class="btn btn-primary btn-lg mt-4 ml-auto" onclick="purchase()">Purchase</button>
+                                    <script>
+                                        function purchase()
+                                        {
+                                            addToBag();
+                                            location.replace("/purchase-page")
+
+                                        }
+                                    </script>
                                 </div>
                             </div>
                         </form>
