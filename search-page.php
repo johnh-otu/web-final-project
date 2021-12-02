@@ -194,7 +194,7 @@
                                     echo '
                                     <div class="col">
                                         <div class="card shadow-sm">
-                                            <img src="data:image/jpeg;base64,'.base64_encode($result['image']).'" width=200 height=200/> 
+                                            <img src="data:image/jpeg;base64,'.base64_encode($pimg).'" width=200 height=200/> 
                                             <div class="card-body">
                                                 <p>
                                                     <a href="/product-page?pid='. $pid .'">
