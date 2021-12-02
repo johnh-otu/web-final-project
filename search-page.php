@@ -51,10 +51,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>DFJJ - Our Products</title>
-        <link href="/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Hugo 0.88.1">
+        <title>Album example · Bootstrap v5.1</title>
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
+
+        
+        <!-- Bootstrap core CSS -->
+        <link href="/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet" >
+
+
+
+        <style>
+            .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            }
+
+            @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+            }
+        </style>
+
+        
+        <!-- Custom styles for this template -->
         <link href="/bootstrap-5.1.3-dist/css/sidebars.css" rel="stylesheet">
-        <link rel="stylesheet" href="site-styles.css">
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
@@ -82,66 +112,66 @@
 
                 <!---Divider-->
 
-                <div class="flex-shrink-0 p-3 bg-white col-2" style="width: 280px;">
-                
+                <div class="row">
+                    <div class="flex-shrink-0 p-3 bg-white col-2" style="width: 280px;">
+                        
                     <ul class="list-unstyled ps-0">
                         <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                                Home
-                            </button>
-                            <div class="collapse show col" id="home-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">Overview</a></li>
-                                    <li><a href="#" class="link-dark rounded">Updates</a></li>
-                                    <li><a href="#" class="link-dark rounded">Reports</a></li>
-                                </ul>
-                            </div>
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                            Men
+                        </button>
+                        <div class="collapse show col" id="home-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-dark rounded">Shirt</a></li>
+                            <li><a href="#" class="link-dark rounded">Pants</a></li>
+                            <li><a href="#" class="link-dark rounded">Accesories</a></li>
+                            </ul>
+                        </div>
                         </li>
                         <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                                Dashboard
-                            </button>
-                            <div class="collapse" id="dashboard-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">Overview</a></li>
-                                    <li><a href="#" class="link-dark rounded">Weekly</a></li>
-                                    <li><a href="#" class="link-dark rounded">Monthly</a></li>
-                                    <li><a href="#" class="link-dark rounded">Annually</a></li>
-                                </ul>
-                            </div>
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                            Women
+                        </button>
+                        <div class="collapse" id="dashboard-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-dark rounded">Shirt</a></li>
+                            <li><a href="#" class="link-dark rounded">Pants</a></li>
+                            <li><a href="#" class="link-dark rounded">Accesories</a></li>
+                            </ul>
+                        </div>
                         </li>
                         <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                                Orders
-                            </button>
-                            <div class="collapse" id="orders-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">New</a></li>
-                                    <li><a href="#" class="link-dark rounded">Processed</a></li>
-                                    <li><a href="#" class="link-dark rounded">Shipped</a></li>
-                                    <li><a href="#" class="link-dark rounded">Returned</a></li>
-                                </ul>
-                            </div>
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                            Children
+                        </button>
+                        <div class="collapse" id="orders-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-dark rounded">Shirt</a></li>
+                            <li><a href="#" class="link-dark rounded">Pants</a></li>
+                            <li><a href="#" class="link-dark rounded">Accesories</a></li>
+                            </ul>
+                        </div>
                         </li>
                         <li class="border-top my-3"></li>
                         <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                                Account
-                            </button>
-                            <div class="collapse" id="account-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">New...</a></li>
-                                    <li><a href="#" class="link-dark rounded">Profile</a></li>
-                                    <li><a href="#" class="link-dark rounded">Settings</a></li>
-                                    <li><a href="#" class="link-dark rounded">Sign out</a></li>
-                                </ul>
-                            </div>
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                            Filter
+                        </button>
+                        <div class="collapse" id="account-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-dark rounded">A-Z</a></li>
+                            <li><a href="#" class="link-dark rounded">Z-A</a></li>
+                            <li><a href="#" class="link-dark rounded">High-Low Price</a></li>
+                            <li><a href="#" class="link-dark rounded">Low-High Price</a></li>
+                            </ul>
+                        </div>
                         </li>
                     </ul>
                 </div>
 
-                <!---Pictures-->
+                <div class="b-example-divider"></div> 
 
+                <!---Pictures-->
 
                 <div class="album py-5 bg-light col">
                     <div class="container">
@@ -153,21 +183,23 @@
                                 {
                                     #echo "<a href='/product-page?pid=" . $product_id . "'>bruh</a>";
                                     
-                                    echo "<div class='col'>
-                                        <div class='card shadow-sm'>
-                                            <svg class='bd-placeholder-img card-img-top' width='100%' height='225' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Placeholder: Thumbnail' preserveAspectRatio='xMidYMid slice' focusable='false'><title>Placeholder</title><rect width='100%' height='100%' fill='#55595c'/><text x='50%' y='50%' fill='#eceeef' dy='.3em'>Thumbnail</text></svg>
-                                            <div class='card-body'>
-                                                <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                <div class='d-flex justify-content-between align-items-center'>
-                                                    <div class='btn-group'>
-                                                        <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-                                                        <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
-                                                    </div>
-                                                    <small class='text-muted'>9 mins</small>
+                                    echo '
+                                    <div class="col">
+                                        <div class="card shadow-sm">
+                                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                                    
+                                            <div class="card-body">
+                                                <p>
+                                                    <a href="/product-page?pid=1">
+                                                    <span>Product Description</span>
+                                                    </a>
+                                                </p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <small class="text-muted">0.00 $</small>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>";
+                                    </div>';
                                     
                                 }
                             ?>
