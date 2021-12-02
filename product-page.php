@@ -101,34 +101,21 @@
                     <div class="mt-auto">
                         <form action="checkout-page.php" method="post">
                             <div class="row">
-                                <span>Size: </span>
-                                <div class="dropdown">
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Choose Size
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('XS')">XS</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('S')">S</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('M')">M</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('L')">L</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('XL')">XL</button></li>
-                                    </ul>
+                                <label for="size">Size: </label>
+                                <div class="w-100 input-group">
+                                    <select name="size" id="size" class="detail-quantity form-control ml-auto" required>
+                                        <option>XS</option>
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+                                        <option>XL</option>
+                                    </select>
                                 </div>
-
-                                <script>
-                                    function updateDropdown(x)
-                                    {
-                                        document.getElementById("size-value").value = x;
-                                        document.getElementById("dropdownMenuButton").innerHTML = x;
-                                    }
-                                </script>
-                                <input type="hidden" name="size-value" id="size-value">
-                                
                             </div>
                             <div class="row  mt-4">
-                                <span>Quantity: </span>
+                                <label for="items">Quantity: </label>
                                 <div class="w-100 input-group">
-                                    <input name="items" type="number" style="width: 75%" class="detail-quantity form-control-lg form-control ml-auto" value="1">
+                                    <input name="items" id="items" type="number" style="width: 75%" class="detail-quantity form-control ml-auto" value="1">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -169,7 +156,7 @@
         </main>
 
         <script src="/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+        <script src="/bootstrap-5.1.3-dist/js/bootstrap.bundle.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 
 </html>
