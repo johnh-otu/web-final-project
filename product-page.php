@@ -42,7 +42,7 @@
 
             <div class="row">
                 <div class="col ps-5 me-4">
-                    <div id="product-pics" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="false">
+                    <!--<div id="product-pics" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="false">
 
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#product-pics" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
@@ -80,7 +80,11 @@
                             <span class="visually-hidden">Next</span>
                         </button>
 
-                    </div>
+                    </div>-->
+                    
+                    <figure class="figure">
+                        <img class="figure-img img-fluid rounded" alt="product image">
+                    </figure>
                 </div>
                 
 
