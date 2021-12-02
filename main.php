@@ -133,9 +133,28 @@
 
 <div class="album py-5 bg-light col">
   <div class="container">
+    <?php
+
+      define("connectionString","mysql:dbname=finalproject");
+      define("userName","root");
+      define("password","");
+      $conn = new PDO(connectionString,userName,password);
+
+      $sql = "SELECT * FROM products";
+      $statement = $conn->prepare($sql);
+      $statement->execute();
+
+      while($result = $statement->fetch(PDO::FETCH_ASSOC))
+      {
+        $pid = $result['product_id'];
+        echo '<div class="caption"><h3>
+                <a href="http://localhost/product-page.php?product_id='.$pid.'">
+                <img src="data:image/jpeg;base64,'.base64_encode($result['image']).'" width=200 height=200/> 
+                </a>'."</br>" .$result['product_name']. '  
+                </h3></div>';    
+      }
+    ?>
     
-    
-  </div>
 </div>
 </div>
 
@@ -160,3 +179,7 @@
       
   </body>
 </html>
+
+
+
+

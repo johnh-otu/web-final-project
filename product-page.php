@@ -1,5 +1,33 @@
 <?php
     #retrieve product info and store it in variables
+    $pid = $_GET['product_id'];
+    
+    try
+    {
+    define("connectionString","mysql:dbname=finalproject");
+    define("userName","root");
+    define("password","");
+    $conn = new PDO(connectionString,userName,password);
+
+    $sql = "SELECT * FROM products WHERE product_id =" . $pid;
+    $statement = $conn->prepare($sql);
+    $statement->execute();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    
+    if ($result)
+    {
+        $name = $result['product_name'];
+        $color = $result['color'];
+        $type = $result['type'];
+        $gender = $result['gender'];
+        $price = $result['price'];
+    }
+
+    }
+    catch (PDOException $e)
+    {
+        echo $e->getMessage();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -43,50 +71,20 @@
             <div class="row">
                 <div class="col ps-5 me-4">
                     <div id="product-pics" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="false">
-
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#product-pics" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#product-pics" data-bs-slide-to="1" class aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#product-pics" data-bs-slide-to="2" class aria-label="Slide 3"></button>
-                        </div>
-
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false" data-interval="false">
-                                    <rect width="100%" height="100%" fill="#777"></rect>
-                                    <text x="50%" y="50%" fill="#555" dey=".3em">First Slide</text>
-                                </svg>
-                            </div>
-                            <div class="carousel-item">
-                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                    <rect width="100%" height="100%" fill="#777"></rect>
-                                    <text x="50%" y="50%" fill="#555" dey=".3em">Second Slide</text>
-                                </svg>
-                            </div>
-                            <div class="carousel-item">
-                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                    <rect width="100%" height="100%" fill="#777"></rect>
-                                    <text x="50%" y="50%" fill="#555" dey=".3em">Third Slide</text>
-                                </svg>
-                            </div>
+                            <div class="carousel-item active">                              
+                                    <?php 
+                                    echo  '<img src="data:image/jpeg;base64,'.base64_encode($result['image']).'" width = 400 height = 400 /> ';
+                                    ?>
+                            </div>                        
                         </div>
-
-                        <button class="carousel-control-prev" type="button" data-bs-target="#product-pics" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#product-pics" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-
                     </div>
                 </div>
                 
 
                 <div class="col ms-3 ps-5 pe-5">
-                    <h3>Name</h3>
-                    <p>CA$PR.CE</p>
+                    <h3><?php echo $name; ?></h3>
+                    <p>$<?php echo $price; ?></p>
                     <div class="mt-auto">
                         <form action="" method="get">
                             <div class="row">
