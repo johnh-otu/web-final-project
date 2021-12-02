@@ -1,5 +1,12 @@
 <?php
-    #retrieve product info and store it in variables
+    if(!isset($_GET['pid']))
+    {
+        echo "<script>location.replace('/search-page');</script>";
+    }
+    else
+    {
+        //check if the product exists, else kick back to search-page
+    }
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +106,7 @@
                                     <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                         Choose Size
                                     </button>
-                                    <input type="hidden" name="size-value" id="size-value" require>
+                                    <input type="hidden" name="size-value" id="size-value">
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <li><button class="dropdown-item" type="button" onclick="updateDropdown('XS')">XS</button></li>
                                         <li><button class="dropdown-item" type="button" onclick="updateDropdown('S')">S</button></li>
@@ -148,7 +155,7 @@
                                         function purchase()
                                         {
                                             addToBag();
-                                            location.replace("/purchase-page")
+                                            location.replace("/purchase-page");
 
                                         }
                                     </script>
