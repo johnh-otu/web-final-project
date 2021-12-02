@@ -7,7 +7,7 @@
     }
     else
     {
-        $pid = $_GET['product_id'];
+        $pid = $_GET['pid'];
     }
 
     try
