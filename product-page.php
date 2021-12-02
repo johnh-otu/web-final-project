@@ -1,5 +1,12 @@
 <?php
-    #retrieve product info and store it in variables
+    if(!isset($_GET['pid']))
+    {
+        echo "<script>location.replace('/search-page');</script>";
+    }
+    else
+    {
+        //check if the product exists, else kick back to search-page
+    }
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +49,7 @@
 
             <div class="row">
                 <div class="col ps-5 me-4">
-                    <div id="product-pics" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="false">
+                    <!--<div id="product-pics" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="false">
 
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#product-pics" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
@@ -80,7 +87,11 @@
                             <span class="visually-hidden">Next</span>
                         </button>
 
-                    </div>
+                    </div>-->
+                    
+                    <figure class="figure">
+                        <img class="figure-img img-fluid rounded" alt="product image">
+                    </figure>
                 </div>
                 
 
@@ -88,40 +99,28 @@
                     <h3>Name</h3>
                     <p>CA$PR.CE</p>
                     <div class="mt-auto">
-                        <form action="" method="get">
+                        <form action="checkout-page.php" method="post">
                             <div class="row">
-                                <span>Size: </span>
-                                <div class="dropdown">
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Choose Size
-                                    </button>
-                                    <input type="hidden" id="size-value">
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('XS')">XS</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('S')">S</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('M')">M</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('L')">L</button></li>
-                                        <li><button class="dropdown-item" type="button" onclick="updateDropdown('XL')">XL</button></li>
-                                    </ul>
-
-                                    <script>
-                                        function updateDropdown(x)
-                                        {
-                                            document.getElementById("size-value").value = x;
-                                            document.getElementById("dropdownMenuButton").innerHTML = x;
-                                        }
-                                    </script>
+                                <label for="size">Size: </label>
+                                <div class="w-100 input-group">
+                                    <select name="size" id="size" class="detail-quantity form-control ml-auto" required>
+                                        <option>XS</option>
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+                                        <option>XL</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row  mt-4">
-                                <span>Quantity: </span>
+                                <label for="items">Quantity: </label>
                                 <div class="w-100 input-group">
-                                    <input name="items" type="number" style="width: 75%" class="detail-quantity form-control-lg form-control ml-auto" value="1">
+                                    <input name="items" id="items" type="number" style="width: 75%" class="detail-quantity form-control ml-auto" value="1">
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <?php
-                                    echo "<input type='hidden' id='product-id' value='". $_GET['pid'] ."'>" 
+                                    echo "<input type='hidden' id='product-id' name='pid' value='". $_GET['pid'] ."'>" 
                                 ?>
                                 <div>
                                     <button type="button" style="width: 75%" class="btn btn-secondary btn-lg mt-4 ml-auto" onclick="addToBag()">
@@ -131,9 +130,22 @@
                                             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
                                         </svg>
                                     </button>
+                                    <script>
+                                        function addToBag()
+                                        {
+                                            //code to add product to bag
+                                        }
+                                    </script>
                                 </div>
                                 <div>
-                                    <button type="submit" style="width: 75%" class="btn btn-primary btn-lg mt-4 ml-auto">Purchase</button>
+                                    <button type="button" style="width: 75%" class="btn btn-primary btn-lg mt-4 ml-auto" onclick="purchase()">Purchase</button>
+                                    <script>
+                                        function purchase()
+                                        {
+                                            addToBag();
+                                            location.replace("/purchase-page");
+                                        }
+                                    </script>
                                 </div>
                             </div>
                         </form>
@@ -144,7 +156,7 @@
         </main>
 
         <script src="/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+        <script src="/bootstrap-5.1.3-dist/js/bootstrap.bundle.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 
 </html>
