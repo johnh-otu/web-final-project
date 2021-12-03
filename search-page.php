@@ -40,16 +40,16 @@
                 switch($_GET['f'])
                 {
                     case 'AZ':
-                        $condition[4] = "ORDER BY product_name ASC";
+                        $condition[4] = " ORDER BY product_name ASC";
                         break;
                     case 'ZA':
-                        $condition[4] = "ORDER BY product_name DESC";
+                        $condition[4] = " ORDER BY product_name DESC";
                         break;
                     case 'HL':
-                        $condition[4] = "ORDER BY price DESC";
+                        $condition[4] = " ORDER BY price DESC";
                         break;
                     case 'LH':
-                        $condition[4] = "ORDER BY price ASC";
+                        $condition[4] = " ORDER BY price ASC";
                         break;
                 }
             }
