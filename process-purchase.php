@@ -66,5 +66,6 @@
 
     $pdo = null;
 
-    echo '<script>location.replace("/search-page");</script>';
+    setcookie('cart', "", time()-3600);
+    echo '<script>location.replace("/thankyou-page");</script>';
 ?>
