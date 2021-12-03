@@ -141,6 +141,8 @@
                             <span>Total (CAD)</span>
                             <strong>$' . $total . '</strong>
                         </li>';
+                        
+                    $pdo = null;
                 ?>
               
             </ul>
