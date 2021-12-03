@@ -30,13 +30,13 @@
     switch($whereto)
     {
         case "Add To Bag":
-            location.replace("/product-page?pid=" . $pid);
+            echo '<script>location.replace("/product-page?pid=' . $pid . '");</script>';
             break;
         case "Purchase" :
-            location.replace("/purchase-page");
+            echo '<script>location.replace("/purchase-page");</script>';
             break;
         default:
-            location.replace("/search-page");
+            echo '<script>location.replace("/search-page");</script>';
             break;
     }
 ?>
