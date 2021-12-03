@@ -36,6 +36,8 @@ CREATE TABLE IF NOT EXISTS `information` (
   `city` varchar(50) NOT NULL,
   `postal` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `province` varchar(100) NOT NULL,
+  `country` varchar(7) NOT NULL,
   `date` date NOT NULL,
   `total_price` double NOT NULL,
   PRIMARY KEY (`purchase_id`)

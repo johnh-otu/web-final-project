@@ -43,7 +43,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>DFJJ - </title> <!-- there might be a way to put product name here-->
+        <title>DFJJ - <?php echo $name ?></title> <!-- there might be a way to put product name here-->
         <link href="/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="site-styles.css">
     </head>
