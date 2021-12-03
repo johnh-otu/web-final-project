@@ -1,5 +1,21 @@
+<?php
 
-<!doctype html>
+    if(!isset($_COOKIE['cart']))
+    {
+        echo '<script>location.replace("/search-page");</script>';
+    }
+    else
+    {
+        $cart = explode(",", $_COOKIE['cart']);
+        echo "<script>console.log('" . $cart[0] . "');</script>";
+        echo "<script>console.log('" . $cart[1] . "');</script>";
+        echo "<script>console.log('" . $cart[2] . "');</script>";
+    }
+
+?>
+
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -237,3 +253,4 @@
       <script src="/bootstrap-5.1.3-dist/js/form-validation.js"></script>
   </body>
 </html>
+
