@@ -141,7 +141,7 @@
                                 Gender
                             </button>
                             <!--<div class="ms-4"><h5>Gender</h5></div>-->
-                            <div class="col" id="gender-collapse">
+                            <div class="col collapse" id="gender-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li><input type="radio" name="g" value="Men" id="g-m" class="ms-4 me-3"><label for="g-m">Men</label></li>
                                 <li><input type="radio" name="g" value="Women" id="g-w" class="ms-4 me-3"><label for="g-w">Women</label></li>
@@ -154,7 +154,7 @@
                                 Colour
                             </button>
                             <!--<div class="ms-4"><h5>Colour</h5></div>-->
-                            <div class="" id="colour-collapse">
+                            <div class="collapse" id="colour-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li><input type="radio" name="c" value="Red" id="c-r" class="ms-4 me-3"><label for="c-r">Red</label></li>
                                 <li><input type="radio" name="c" value="Blue" id="c-b" class="ms-4 me-3"><label for="c-b">Blue</label></li>
@@ -172,7 +172,7 @@
                                 Style
                             </button>
                             <!--<div class="ms-4"><h5>Style</h5></div>-->
-                            <div class="" id="style-collapse">
+                            <div class="collapse" id="style-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li><input type="radio" name="t" value="Top" id="t-t" class="ms-4 me-3"><label for="t-t">Tops</label></li>
                                 <li><input type="radio" name="t" value="Bottom" id="t-b" class="ms-4 me-3"><label for="t-b">Bottoms</label></li>
@@ -186,7 +186,7 @@
                                 Order
                             </button>
                             <!--<div class="ms-4"><h5>Order</h5></div>-->
-                            <div class="" id="filter-collapse">
+                            <div class="collapse" id="filter-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li><input type="radio" name="f" value="AZ" id="f-a" class="ms-4 me-3"><label for="f-a">A-Z</label></li>
                                 <li><input type="radio" name="f" value="ZA" id="f-z" class="ms-4 me-3"><label for="f-z">Z-A</label></li>
