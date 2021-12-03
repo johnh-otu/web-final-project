@@ -35,9 +35,27 @@
                 $type = $_GET['t'];
                 $condition[3] = " AND type = " . $pdo->quote($type);
             }
+            if(isset($_GET['f']))
+            {
+                switch($_GET['f'])
+                {
+                    case 'AZ':
+                        $condition[4] = "ORDER BY product_name ASC";
+                        break;
+                    case 'ZA':
+                        $condition[4] = "ORDER BY product_name DESC";
+                        break;
+                    case 'HL':
+                        $condition[4] = "ORDER BY price DESC";
+                        break;
+                    case 'LH':
+                        $condition[4] = "ORDER BY price ASC";
+                        break;
+                }
+            }
         }
         
-        $sql = "SELECT * FROM products WHERE ". $condition[0] . (isset($condition[2])?$condition[2]:"") . (isset($condition[3])?$condition[3]:"") . (isset($condition[1])?$condition[1]:"") .";";
+        $sql = "SELECT * FROM products WHERE ". $condition[0] . (isset($condition[2])?$condition[2]:"") . (isset($condition[3])?$condition[3]:"") . (isset($condition[1])?$condition[1]:"") . (isset($condition[4])?$condition[4]:"") .";";
         echo '<script>console.log("sql value: '. $sql .'");</script>';
         $products = $pdo->query($sql)->fetchAll(); //returns as a 2-D array
 
@@ -119,10 +137,10 @@
                     <div class="flex-shrink-0 p-3 bg-white col-2" style="width: 280px;">
                         <ul class="list-unstyled ps-0">
                             <li class="mb-1">
-                            <!--<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#gender-collapse" aria-expanded="false">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#gender-collapse" aria-expanded="false">
                                 Gender
-                            </button>-->
-                            <div class="ms-4"><h5>Gender</h5></div>
+                            </button>
+                            <!--<div class="ms-4"><h5>Gender</h5></div>-->
                             <div class="col" id="gender-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li><input type="radio" name="g" value="Men" id="g-m" class="ms-4 me-3"><label for="g-m">Men</label></li>
@@ -132,10 +150,10 @@
                             </div>
                             </li>
                             <li class="mb-1">
-                            <!--<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#colour-collapse" aria-expanded="false">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#colour-collapse" aria-expanded="false">
                                 Colour
-                            </button>-->
-                            <div class="ms-4"><h5>Colour</h5></div>
+                            </button>
+                            <!--<div class="ms-4"><h5>Colour</h5></div>-->
                             <div class="" id="colour-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li><input type="radio" name="c" value="Red" id="c-r" class="ms-4 me-3"><label for="c-r">Red</label></li>
@@ -150,10 +168,10 @@
                             </div>
                             </li>
                             <li class="mb-1">
-                            <!--<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#style-collapse" aria-expanded="false">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#style-collapse" aria-expanded="false">
                                 Style
-                            </button>-->
-                            <div class="ms-4"><h5>Style</h5></div>
+                            </button>
+                            <!--<div class="ms-4"><h5>Style</h5></div>-->
                             <div class="" id="style-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li><input type="radio" name="t" value="Top" id="t-t" class="ms-4 me-3"><label for="t-t">Tops</label></li>
@@ -164,10 +182,10 @@
                             </li>
                             <li class="border-top my-3"></li>
                             <li class="mb-1">
-                            <!--<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#filter-collapse" aria-expanded="false">
-                                Filter
-                            </button>-->
-                            <div class="ms-4"><h5>Order</h5></div>
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#filter-collapse" aria-expanded="false">
+                                Order
+                            </button>
+                            <!--<div class="ms-4"><h5>Order</h5></div>-->
                             <div class="" id="filter-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li><input type="radio" name="f" value="AZ" id="f-a" class="ms-4 me-3"><label for="f-a">A-Z</label></li>
@@ -182,7 +200,7 @@
                             </li>
                         </ul>
                         <script>
-                            function yandevCode()
+                            function yandevCode() //makes url and redirects user
                             {
                                 gender = "";
                                 colour = "";
