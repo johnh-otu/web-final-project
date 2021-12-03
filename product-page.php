@@ -1,6 +1,14 @@
 <?php
     #retrieve product info and store it in variables
 
+    $expiryTime = time()+60*60*24;
+    $cname = "cart";
+    $cvalue = "";
+    if(!isset($_COOKIE['cart']))
+    {
+        setcookie($cname, $cvalue, $expiryTime, '/');
+    }
+
     if(!isset($_GET['pid'])) //checks if no pid is provided, and sends back to search page
     {
         echo "<script>location.replace('/search-page');</script>"; //sends to search page
@@ -151,6 +159,28 @@
                                         function addToBag()
                                         {
                                             //code to add product to bag
+                                            <?php
+                                                $new_size = $document.getElementById('size');
+                                                $new_string = "";
+                                                $new_quantity = $document.getElementById('items');
+                                                //note we have pid already
+
+                                                if(isset($_COOKIE['cart']))
+                                                {
+                                                    $old_string = $_COOKIE['cart'];
+
+                                                    for($i = 0; $i > $items; $i++)
+                                                    {
+                                                        $new_string = "," . $pid . ":" . $new_size;
+                                                        $old_string .= $new_string;
+                                                    }
+
+                                                    setcookie('cart', $old_string, time()+86400, '/');
+                                                    
+                                                }
+
+                                            ?>
+
                                         }
                                     </script>
                                 </div>
