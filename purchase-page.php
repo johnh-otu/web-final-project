@@ -1,18 +1,18 @@
 <?php
 
-    if(!isset($_COOKIE['cart']))
-    {
-        echo '<script>location.replace("/search-page");</script>';
-    }
-    else
-    {
-        $cart = explode(",", $_COOKIE['cart']);
-        $cartArr = Array();
-        for($i = 1; $i < count($cart); $i++)
-        {
-            $cartArr[$i-1] = explode(":", $cart[$i]);
-        }
-    }
+  if(!isset($_COOKIE['cart']))
+  {
+      echo '<script>location.replace("/search-page");</script>';
+  }
+  else
+  {
+      $cart = explode(",", $_COOKIE['cart']);
+      $cartArr = Array();
+      for($i = 1; $i < count($cart); $i++)
+      {
+          $cartArr[$i-1] = explode(":", $cart[$i]);
+      }
+  }
 ?>
 
 
@@ -154,7 +154,7 @@
 
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">First name</label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                  <input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value="" required>
                   <div class="invalid-feedback">
                     Valid first name is required.
                   </div>
@@ -162,7 +162,7 @@
 
                 <div class="col-sm-6">
                   <label for="lastName" class="form-label">Last name</label>
-                  <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                  <input type="text" class="form-control" id="lastName" name="lastName" placeholder="" value="" required>
                   <div class="invalid-feedback">
                     Valid last name is required.
                   </div>
@@ -170,7 +170,7 @@
 
                 <div class="col-12">
                   <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                  <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
                   <div class="invalid-feedback">
                     Please enter a valid email address for shipping updates.
                   </div>
@@ -178,7 +178,7 @@
 
                 <div class="col-12">
                   <label for="address" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                  <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" required>
                   <div class="invalid-feedback">
                     Please enter your shipping address.
                   </div>
@@ -186,7 +186,7 @@
 
                 <div class="col-12">
                   <label for="city" class="form-label">City</label>
-                  <input type="text" class="form-control" id="city" placeholder="Exampleville" required>
+                  <input type="text" class="form-control" id="city" name="city" placeholder="Exampleville" required>
                   <div class="invalid-feedback">
                     Please enter a valid city.
                   </div>
@@ -194,7 +194,7 @@
 
                 <div class="col-md-5">
                   <label for="country" class="form-label">Country</label>
-                  <select class="form-select" id="country" required>
+                  <select class="form-select" id="country" name="country" required>
                     <option value="">Choose...</option>
                     <option>Canada</option>
                   </select>
@@ -205,7 +205,7 @@
 
                 <div class="col-md-4">
                   <label for="province" class="form-label">Province</label>
-                  <select class="form-select" id="province" required>
+                  <select class="form-select" id="province" name="province" required>
                     <option value="">Choose...</option>
                     <option>Alberta</option>
                     <option>British Columbia</option>
@@ -228,7 +228,7 @@
 
                 <div class="col-md-3">
                   <label for="postal" class="form-label">Postal Code</label>
-                  <input type="text" class="form-control" id="postal" placeholder="" required>
+                  <input type="text" class="form-control" id="postal" name="postal" placeholder="" required>
                   <div class="invalid-feedback">
                     Postal code required.
                   </div>
