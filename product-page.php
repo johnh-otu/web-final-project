@@ -45,6 +45,9 @@
     {
         echo $e->getMessage();
     }
+
+    $dom = new DOMDocument();
+    $dom->load("product-page.php");
 ?>
 
 <!DOCTYPE html>
@@ -160,9 +163,9 @@
                                         {
                                             //code to add product to bag
                                             <?php
-                                                $new_size = $document.getElementById('size');
+                                                $new_size = $dom->getElementById('size');
                                                 $new_string = "";
-                                                $new_quantity = $document.getElementById('items');
+                                                $new_quantity = $dom->getElementById('items');
                                                 //note we have pid already
 
                                                 if(isset($_COOKIE['cart']))
