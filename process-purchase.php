@@ -60,8 +60,9 @@
         for ($i=0; $i < count($cartArr); $i++) 
         {
             $pid = $cartArr[$i][0];
-            $size = $cartArr[$i][1]; 
-            $sql = "INSERT INTO `purchases` (`purchase_id`, `product_id`, `size`) VALUES (" . $purchase_id . ", " . $pid . ", " . $size . ");";
+            $size = (string)$cartArr[$i][1]; 
+            echo $size;
+            $sql = "INSERT INTO `purchases` (`purchase_id`, `product_id`, `size`) VALUES (" . $purchase_id[0] . ", " . $pid . ", " . $pdo->quote($size) . ");";
             $rows = $pdo->prepare($sql)->execute(); //insert
             echo $rows;
         }
@@ -75,5 +76,5 @@
     
 
     setcookie('cart', "", time()-3600);
-    //echo '<script>location.replace("/thankyou-page");</script>';
+    echo '<script>location.replace("/thankyou-page");</script>';
 ?>

@@ -100,7 +100,7 @@
         <div class="row g-5">
           <div class="col-md-5 col-lg-4 order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
-              <span class="text-primary">Your cart</span>
+              <span class="text-primary">Your Bag</span>
               <span class="badge bg-primary rounded-pill"><?php echo count($cartArr); ?></span>
             </h4>
             <ul class="list-group mb-3">
@@ -245,20 +245,6 @@
           </div>
         </div>
       </main>
-
-      <!--Footer-->
-
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017–2021 Company Name</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-      </footer>
-    </div>
-
-
     <script src="/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 
       <script src="/bootstrap-5.1.3-dist/js/form-validation.js"></script>
