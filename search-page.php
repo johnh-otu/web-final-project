@@ -37,7 +37,7 @@
             }
         }
         
-        $sql = "SELECT * FROM products WHERE ". $condition[0] . (isset($condition[1])?$condition[1]:""). (isset($condition[2])?$condition[2]:""). (isset($condition[3])?$condition[3]:"") .";";
+        $sql = "SELECT * FROM products WHERE ". $condition[0] . (isset($condition[2])?$condition[2]:"") . (isset($condition[3])?$condition[3]:"") . (isset($condition[1])?$condition[1]:"") .";";
         echo '<script>console.log("sql value: '. $sql .'");</script>';
         $products = $pdo->query($sql)->fetchAll(); //returns as a 2-D array
 
