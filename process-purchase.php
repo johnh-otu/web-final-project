@@ -48,12 +48,12 @@
     }
 
     $sql = "INSERT INTO `information` (`first_name`, `last_name`, `street_address`, `city`, `postal`, `email`, `total_price`, `province`, `country`) 
-        VALUES (". $first .",". $last .",". $address .",". $city .",". $postal .",". $email .",". $price .",". $province .",". $country .");";
+        VALUES (". $first .",". $last .",". $address .",". $city .",". $postal .",`". $email ."`,". $price .",". $province .",". $country .");";
 
     $pdo->prepare($sql)->execute(); //insert
 
     $sql = "SELECT purchase_id FROM information WHERE email=" . $pdo->quote($email) . " AND price=" . $price . ";";
-    $purchase_id = $pdo->query($)->fetch();
+    $purchase_id = $pdo->query($sql)->fetch();
 
     
     for ($i=0; $i < count($cartArr); $i++) 
