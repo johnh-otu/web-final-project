@@ -115,7 +115,7 @@
             <!---Divider-->
 
             <div class="row">
-                <form method="get" action="search-page.php">
+                <!--<form method="get" action="search-page.php">-->
                     <div class="flex-shrink-0 p-3 bg-white col-2" style="width: 280px;">
                         <ul class="list-unstyled ps-0">
                             <li class="mb-1">
@@ -167,22 +167,114 @@
                             <!--<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#filter-collapse" aria-expanded="false">
                                 Filter
                             </button>-->
-                            <div class="ms-4"><h5>Filter</h5></div>
+                            <div class="ms-4"><h5>Order</h5></div>
                             <div class="" id="filter-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                <li><a href="#" class="link-dark rounded">A-Z</a></li>
-                                <li><a href="#" class="link-dark rounded">Z-A</a></li>
-                                <li><a href="#" class="link-dark rounded">High-Low Price</a></li>
-                                <li><a href="#" class="link-dark rounded">Low-High Price</a></li>
+                                <li><input type="radio" name="f" value="AZ" id="f-a" class="ms-4 me-3"><label for="f-a">A-Z</label></li>
+                                <li><input type="radio" name="f" value="ZA" id="f-z" class="ms-4 me-3"><label for="f-z">Z-A</label></li>
+                                <li><input type="radio" name="f" value="HL" id="f-h" class="ms-4 me-3"><label for="f-h">High-Low Price</label></li>
+                                <li><input type="radio" name="f" value="LH" id="f-l" class="ms-4 me-3"><label for="f-l">Low-High Price</label></li>
                                 </ul>
                             </div>
                             </li>
                             <li>
-                                <button type="submit" class="w-100 btn btn-primary mt-3">Search <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></button>
+                                <button type="submit" class="w-100 btn btn-primary mt-3" onclick="yandevCode()">Search <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></button>
                             </li>
                         </ul>
+                        <script>
+                            function yandevCode()
+                            {
+                                gender = "";
+                                colour = "";
+                                type = "";
+                                filter = "";
+
+                                //gender
+                                if(document.getElementById("g-m").checked)
+                                {
+                                    gender="g=Men";
+                                }
+                                else if (document.getElementById("g-w").checked)
+                                {
+                                    gender="g=Women";
+                                }
+                                else if (document.getElementById("g-u").checked)
+                                {
+                                    gender="g=Unisex";
+                                }
+
+                                //colour
+                                if(document.getElementById("c-r").checked)
+                                {
+                                    colour="c=Red";
+                                }
+                                else if (document.getElementById("c-b").checked)
+                                {
+                                    colour="c=Blue";
+                                }
+                                else if (document.getElementById("c-k").checked)
+                                {
+                                    colour="c=Black";
+                                }
+                                else if (document.getElementById("c-a").checked)
+                                {
+                                    colour="c=Gray";
+                                }
+                                else if (document.getElementById("c-g").checked)
+                                {
+                                    colour="c=Green";
+                                }
+                                else if (document.getElementById("c-w").checked)
+                                {
+                                    colour="c=White";
+                                }
+                                else if (document.getElementById("c-p").checked)
+                                {
+                                    colour="c=Purple";
+                                }
+                                else if (document.getElementById("c-n").checked)
+                                {
+                                    colour="c=Pink";
+                                }
+
+                                //type
+                                if(document.getElementById("t-t").checked)
+                                {
+                                    type="t=Top";
+                                }
+                                else if (document.getElementById("t-b").checked)
+                                {
+                                    type="t=Bottom";
+                                }
+                                else if (document.getElementById("t-a").checked)
+                                {
+                                    type="t=Accessories";
+                                }
+
+                                //filter/order
+                                if(document.getElementById("f-a").checked)
+                                {
+                                    filter="f=AZ";
+                                }
+                                else if (document.getElementById("f-z").checked)
+                                {
+                                    filter="f=ZA";
+                                }
+                                else if (document.getElementById("f-h").checked)
+                                {
+                                    filter="f=HL";
+                                }
+                                else if (document.getElementById("f-l").checked)
+                                {
+                                    filter="f=LH";
+                                }
+
+                                url = "/search-page?" + gender + "&" + colour + "&" + type + "&" + filter;
+                                location.replace(url);
+                            }
+                        </script>
                     </div>
-                </form>
+                <!--</form>-->
             <div class="b-example-divider"></div> 
 
             <!---Pictures-->
