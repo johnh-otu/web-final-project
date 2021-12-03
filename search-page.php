@@ -13,28 +13,37 @@
 
         $condition = "1";
 
-        if(count($_GET) > 1) //for filtering
+        echo "<script>console.log('yo');</script>";
+        echo "<script>console.log('". isset($_GET['c']) ."');</script>";
+
+        if(count($_GET) >= 1) //for filtering
         {
-            $vars = array();
+            echo "<script>console.log('yo');</script>";
 
             if(isset($_GET['g']))
             {
                 $gender = $_GET['g'];
-                $condtition += " AND gender = " . $pdo->quote($gender);
+                echo '<script>console.log("raw value: '. $condition . " AND gender = " . $pdo->quote($gender) . " OR 'Unisex'" .'");</script>';
+                
+                $condtition = $condition . " AND gender = " . $pdo->quote($gender) . " OR 'Unisex'";
+                echo '<script>console.log("condition value: '. $condition .'");</script>';
             }
             if(isset($_GET['c']))
             {
                 $colour = $_GET['c'];
-                $condition += " AND color = " . $pdo->quote($colour);
+                $condition = $condition . " AND color = " . $pdo->quote($colour);
             }
             if(isset($_GET['t']))
             {
                 $type = $_GET['t'];
-                $condition += " AND type = " . $pdo->quote($type);
+                $condition = $condition . " AND type = " . $pdo->quote($type);
             }
+
+            echo '<script>console.log("'. $condition .'");</script>';
         }
         
-        $sql = 'SELECT * from products WHERE '. $condition .';';
+        echo '<script>console.log("'. $condition .'");</script>';
+        $sql = "SELECT * from products WHERE ". $condition .";";
         $products = $pdo->query($sql)->fetchAll(); //returns as a 2-D array
 
         /* or possibly
