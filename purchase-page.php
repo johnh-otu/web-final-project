@@ -10,7 +10,7 @@
         $cartArr = Array();
         for($i = 1; $i < count($cart); $i++)
         {
-            $cartArr[$i-1] = explode(":", cart[$i]);
+            $cartArr[$i-1] = explode(":", $cart[$i]);
         }
     }
 ?>
@@ -106,7 +106,7 @@
             <ul class="list-group mb-3">
 
                 <?php
-                
+
                     $total = 0;
 
                     define("connectionString","mysql:dbname=finalproject");
@@ -120,8 +120,10 @@
                     {
                         $pid = $cartArr[$i][0];
                         $psize = $cartArr[$i][1];
-                        $pprice = $pdo->query("SELECT price FROM products WHERE product_id = " . $pid . ";")->fetchAll()[0];
-                        $pname = $pdo->query("SELECT product_name FROM products WHERE product_id = " . $pid . ";")->fetchAll()[0];
+                        $pprices = $pdo->query("SELECT price FROM products WHERE product_id = " . $pid . ";")->fetchAll()[0];
+                        $pprice = $pprices[0];
+                        $pnames = $pdo->query("SELECT product_name FROM products WHERE product_id = " . $pid . ";")->fetchAll()[0];
+                        $pname = $pnames[0];
                         $total += $pprice;
 
                         echo '
