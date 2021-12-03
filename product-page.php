@@ -37,6 +37,7 @@
     {
         echo $e->getMessage();
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -116,7 +117,7 @@
                     <h3><?php echo $name; ?></h3>
                     <p>$<?php echo $price; ?></p>
                     <div class="mt-auto">
-                        <form action="checkout-page.php" method="post">
+                        <form action="cart-add.php" method="post">
                             <div class="row">
                                 <label for="size">Size: </label>
                                 <div class="w-100 input-group">
@@ -137,10 +138,11 @@
                             </div>
                             <div class="row mt-3">
                                 <?php
-                                    echo "<input type='hidden' id='product-id' name='pid' value='". $_GET['pid'] ."'>" 
+                                    echo "<input type='hidden' id='product-id' name='pid' value='". $pid ."'>" 
                                 ?>
                                 <div>
-                                    <button type="button" style="width: 75%" class="btn btn-secondary btn-lg mt-4 ml-auto" onclick="addToBag()">
+                                    <input type="submit" name="submit" value="Add To Bag" style="width: 75%" class="btn btn-secondary btn-lg mt-4 ml-auto">
+                                    <!--<button type="button" style="width: 75%" class="btn btn-secondary btn-lg mt-4 ml-auto" onclick="addToBag()">
                                         Add To Bag
                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bag-plus mb-1 ms-2" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
@@ -151,18 +153,19 @@
                                         function addToBag()
                                         {
                                             //code to add product to bag
+
                                         }
-                                    </script>
+                                    </script>-->
                                 </div>
                                 <div>
-                                    <button type="button" style="width: 75%" class="btn btn-primary btn-lg mt-4 ml-auto" onclick="purchase()">Purchase</button>
-                                    <script>
+                                    <input type="submit" style="width: 75%" class="btn btn-primary btn-lg mt-4 ml-auto" name="submit" value="Purchase">
+                                    <!--<script>
                                         function purchase()
                                         {
                                             addToBag();
                                             location.replace("/purchase-page");
                                         }
-                                    </script>
+                                    </script>-->
                                 </div>
                             </div>
                         </form>
