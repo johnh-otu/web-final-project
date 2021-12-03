@@ -139,7 +139,7 @@
                     echo '
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Total (CAD)</span>
-                            <strong>' . $total . '</strong>
+                            <strong>$' . $total . '</strong>
                         </li>';
                 ?>
               
